@@ -26,6 +26,6 @@ class SI:
     def fmt(value):
         for pfx in SI.SIpfx:
             sipow = SI.SIpfx.get(pfx)
-            if (np.log10(sipow) % 3 == 0):
+            if np.log10(sipow) % 3 == 0:
                 if (pfx == "1"): pfx = ""
                 if abs(value) >= sipow: return "%g %s" % (value / sipow, pfx)

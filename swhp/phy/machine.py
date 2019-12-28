@@ -223,7 +223,9 @@ class HP_Machine(EMachine):
         log.inf("COP:", self.getCOP())
 
 
-"""Coupling variations"""
+"""
+Coupling variations
+"""
 
 
 class EConn(EItem):
