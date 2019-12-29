@@ -2,6 +2,7 @@
 Various helpers
 """
 
+
 def isNone(*variables, strict=False):
     if strict:
         for var in variables:

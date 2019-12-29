@@ -41,11 +41,11 @@ class EItem:
 
 class EMachine(EItem):
     # input values: Efficiency efficiency
-    def __init__(self, efficiency):
+    def __init__(self, efficiency, genEff=0):
         super().__init__()
 
         self.efficiency = efficiency
-        self.genEff = 0
+        self.genEff = genEff
 
         self.pwrin_min = 0
         self.pwrin_max = 0
@@ -150,24 +150,17 @@ class EMachine(EItem):
 
 # Power to heat
 class P2H_Machine(EMachine):
-    # input values: float elecEff
-    def __init__(self, elecEff):
-        super().__init__(Efficiency(elecEff=elecEff))
+    pass
 
 
 # Furnace
-class F_Machine(EMachine):
-    # input values: float fuelEff
-    def __init__(self, fuelEff):
-        super().__init__(Efficiency(fuelEff=fuelEff))
+class FUR_Machine(EMachine):
+    pass
 
 
 # Cogeneration / combined heat and power
 class CHP_Machine(EMachine):
-    # input values: float fuelEff, float genEff
-    def __init__(self, fuelEff, genEff):
-        super().__init__(Efficiency(fuelEff=fuelEff))
-        self.genEff = genEff
+    pass
 
 
 # Bypass
@@ -179,9 +172,8 @@ class BP_Machine(EMachine):
 
 # Heat pump
 class HP_Machine(EMachine):
-    # input values: float elecEff
-    def __init__(self, elecEff):
-        super().__init__(Efficiency(elecEff=elecEff))
+    def __init__(self, eff):
+        super().__init__(eff)
         self.dT = 0
         self.waterIn = HTF()
         self.waterOut = HTF()
